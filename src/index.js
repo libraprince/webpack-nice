@@ -6,6 +6,7 @@ import {cube} from './model/match.js';
 function component(){
 	let element = document.createElement('p');
 	element.innerHTML = _.join(['hello doubi','5*5=',cube(5)],'-');
+	console.log('nijhafd');
 	return element;
 }
 let element = component();
