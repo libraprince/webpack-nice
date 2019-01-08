@@ -1,0 +1,34 @@
+npm install --save-dev style-loader css-loader url-loader csv-loader xml-loader html-webpack-plugin clean-webpack-plugin webpack-merge
+npm install --save-dev style-loader
+npm install --save-dev css-loader
+npm install --save-dev url-loader
+npm install --save-dev csv-loader
+npm install --save-dev xml-loader
+npm install --save-dev html-webpack-plugin
+npm install --save-dev clean-webpack-plugin
+npm install --save-dev webpack-merge
+
+optimization: {
+    splitChunks: {
+      chunks: 'async',
+      minSize: 30000,
+      maxSize: 0,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: '~',
+      name: true,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        }
+      }
+    }
+  }
+

@@ -1,0 +1,130 @@
+@charset "utf-8";
+
+article,
+aside,
+blockquote,
+body,
+button,
+code,
+dd,
+details,
+div,
+dl,
+dt,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+hr,
+input,
+legend,
+li,
+menu,
+nav,
+ol,
+p,
+pre,
+section,
+td,
+textarea,
+th,
+ul {
+    margin: 0;
+    padding: 0
+}
+@font-face{
+	font-family: myFont;
+	src:url('https://www.w3schools.com/lib/fonts/fontawesome.woff?14663396');
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+html {
+	font-size: 100%;
+}
+
+body {
+	font-family: "Microsoft YaHei", "宋体", Tahoma, Arial, sans-serifArial, Helvetica, sans-serif;
+}
+
+em, i {
+	font-style: normal
+}
+
+ul, li {
+	list-style-type: none
+}
+
+strong {
+	font-weight: normal
+}
+a {
+    transition: color .2s
+}
+
+a,
+a:hover,
+ins {
+    text-decoration: none
+}
+
+:focus,
+a:focus {
+    outline: none
+}
+
+.clearfix:after,
+.clearfix:before {
+    content: "";
+    display: table
+}
+
+.clearfix:after {
+    clear: both;
+    overflow: hidden
+}
+
+.clearfix {
+    zoom: 1
+}
+
+.clear {
+    clear: both;
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden
+}
+
+.hide {
+    display: none
+}
+
+.block {
+    display: block
+}
+
+.fl,
+.fr {
+    display: inline
+}
+
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}

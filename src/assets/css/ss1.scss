@@ -1,0 +1,67 @@
+@charset "utf-8";
+@import "basic";
+@import "mixinstyle";
+
+$pr-color: rgb(192, 40, 40);
+.shadows {
+  @include box-shadow(0px 4px 5px #666, 2px 6px 10px #999);
+}
+
+.user_list {
+  @include border-radius(0.5rem 0.2rem);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.5rem;
+  li {
+    width: 25%;
+    padding: 0.5rem;
+    box-sizing: border-box; /*盒子的宽度=盒子本身宽度    默认 盒子的宽度=盒子的宽度+padding+border*/
+    span {
+      display: block;
+      width: 100%;
+      height: 3.2rem;
+      line-height: 3.2rem;
+      text-align: center;
+      background: $pr-color;
+      border-radius: 0.5rem;
+      border: 1px solid hsla(216, 61%, 51%, 0.849);
+    }
+  }
+}
+
+h1 .user_list {
+  font-size: 1rem;
+}
+
+@mixin colors($text, $background, $border) {
+  color: $text;
+  background-color: $background;
+  border-color: $border;
+}
+$values: #ff0000, #00ff00, #979797;
+.primary {
+  @include colors($values...);
+}
+
+$i: 6;
+@while $i > 0 {
+  .item-#{$i} {
+    width: 2em * $i;
+  }
+  $i: $i - 2;
+}
+h1 a{
+  @include trf-scale(0.1,0.2);
+  @include trf-skewx(20deg)
+}
+
+@font-face{
+  font-family: 'sansation' {
+    weight:100;
+    style:normal
+  };
+  src: url('./sansation_light.woff') , url('./sansation_bold.woff');
+}
+body{
+  font-family: 'sansation';
+}

@@ -1,0 +1,57 @@
+@mixin border-radius($canshu...) {
+  -webkit-border-radius: $canshu;
+  -moz-border-radius: $canshu;
+  -o-border-radius: $canshu;
+  -ms-border-radius: $canshu;
+  border-radius: $canshu;
+}
+@mixin box-shadow($canshu...) {
+  -webkit-box-shadow: $canshu;
+  -moz-box-shadow: $canshu;
+  -o-box-shadow: $canshu;
+  -ms-box-shadow: $canshu;
+  box-shadow: $canshu;
+}
+@mixin trf-trla($canshu...) {
+  -webkit-transform: translate($canshu);
+  -moz-transform: translate($canshu);
+  -ms-transform: translate($canshu);
+  -o-transform: translate($canshu);
+  transform: translate($canshu);
+}
+@mixin trf-rota($canshu) {
+  -webkit-transform: rotate($anshu);
+  -moz-transform: rotate($anshu);
+  -o-transform: rotate($anshu);
+  -ms-transform: rotate($anshu);
+  transform: rotate($anshu);
+}
+@mixin trf-scale($canshu...) {
+  -webkit-transform: scale($canshu);
+  -moz-transform: scale($canshu);
+  -o-transform: scale($canshu);
+  -ms-transform: scale($canshu);
+  transform: scale($canshu);
+}
+@mixin trf-skew($canshu...) {
+  -webkit-transform: skew($canshu);
+  -moz-transform: skew($canshu);
+  -ms-transform: skew($canshu);
+  -o-transform: skew($canshu);
+  transform: skew($canshu);
+}
+
+@mixin trf-skewx($canshu...) {
+  -webkit-transform: skewX($canshu);
+  -moz-transform: skewX($canshu);
+  -ms-transform: skewX($canshu);
+  -o-transform: skewX($canshu);
+  transform: skewX($canshu);
+}
+@mixin trf-skewy($canshu...) {
+  -webkit-transform: skewY($canshu);
+  -moz-transform: skewY($canshu);
+  -ms-transform: skewY($canshu);
+  -o-transform: skewY($canshu);
+  transform: skewY($canshu);
+}
