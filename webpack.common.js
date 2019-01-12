@@ -3,22 +3,39 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
+    devtool: 'null',
+    resolve: {
+        alias: {
+            // 解析模块请求的选项（不适用于对 loader 解析）
+            "@": path.resolve(__dirname, "src")
+        },
+        extensions: [".js", ".json", ".jsx", ".css", "scss", "sass", "html"] // 使用的扩展名
+    },
     entry: {
-        main: './src/index.js'
+        main: '@/index',
+        other:'@/model/name'
     },
     output: {
+        path: path.resolve(__dirname, 'dist'),
         filename: '[name].bundle.js',
-        chunkFilename: '[name].js',
-        path: path.resolve(__dirname, 'dist')
+        chunkFilename: "js/[id]-[name].js", // 长效缓存(/guides/caching)
+        //crossOriginLoading: "anonymous",
+        /*library`:"MyLibrary",
+        libraryTarget: "umd"*/
     },
     module: {
         rules: [{
                 test: /\.(css|sass|scss)(\?.*)?$/,
                 use: ['style-loader', 'css-loader', 'sass-loader']
-            },
-            {
+            }, {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-                use: ['url-loader']
+                use: [{
+                    loader: "url-loader",
+                    options: {
+                        useRelativePath: true,
+                        name: 'img/[name].[ext]',
+                    }
+                }]
             },
             {
                 test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
@@ -36,12 +53,18 @@ module.exports = {
                 test: /\.xml(\?.*)?$/,
                 use: ['xml-loader']
             }
+            /*,{
+                            test: /\.html(\?.*)?$/,
+                            loader:'html-loader'
+                        }*/
         ]
     },
     plugins: [ //以下插件需要npm安装
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            template: 'src/index.html',
+            template: './src/index.html',
+            minify: false,
+            hash: true,
             'meta': {
                 'viewport': 'width=device-width, initial-scale=1, shrink-to-fit=no',
                 /* Will generate: <meta name="viewport" content="width=device-width,
