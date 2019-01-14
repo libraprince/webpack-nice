@@ -24,5 +24,6 @@ function component(){
 document.body.appendChild(component());
 
 let $b= $('body');
+let $b= $('body');
 console.log($b);
 export var ary = [1,2,3,1];
