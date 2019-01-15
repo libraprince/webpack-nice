@@ -86,6 +86,6 @@ module.exports = merge(common, {
     ]
 });
 
-/*需要安装的包npm extract-text-webpack-plugin@next flie-loader 
+/*需要安装的包npm extract-text-webpack-plugin@next flie-loader
 'html-loader?attrs[]=img:src&attrs[]=img:data-src&attrs[]=:href!extract-loader'
 */
