@@ -13,20 +13,12 @@ module.exports = {
     },
     entry: {
         main: '@/index',
-<<<<<<< HEAD
-        
-=======
         other: '@/model/name'
->>>>>>> master
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].bundle.js',
-<<<<<<< HEAD
-        chunkFilename: "js/[id]-[name].js", // 长效缓存(/guides/caching)
-=======
         chunkFilename: "js/[name].[hash:8].js", // 长效缓存(/guides/caching)
->>>>>>> master
         //crossOriginLoading: "anonymous",
         /*library`:"MyLibrary",
         libraryTarget: "umd"*/
@@ -36,17 +28,7 @@ module.exports = {
                 test: /\.(css|sass|scss)(\?.*)?$/,
                 use: ['style-loader', 'css-loader', 'sass-loader']
             }, {
-<<<<<<< HEAD
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-                use: [{
-                    loader: "url-loader",
-                    options: {
-                        useRelativePath: true,
-                        name: 'img/[name].[ext]',
-                    }
-                }]
-=======
-                resourceQuery: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 use: [
                     /* config.module.rule('images').use('url-loader') */
                     {
@@ -62,7 +44,6 @@ module.exports = {
                         }
                     }
                 ]
->>>>>>> master
             },
             {
                 test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
