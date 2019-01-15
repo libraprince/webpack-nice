@@ -4,34 +4,37 @@ const merge = require('webpack-merge');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = merge(common, {
+    devtool: 'source-map',
+    node: {
+        setImmediate: false,
+        process: 'mock',
+        dgram: 'empty',
+        fs: 'empty',
+        net: 'empty',
+        tls: 'empty',
+        child_process: 'empty'
+    },
     mode: 'production', //生产模式 执行代码压缩
     optimization: {
-        moduleIds:'named',
+        moduleIds: 'named',
         chunkIds: 'total-size',
         removeEmptyChunks: true,
         mergeDuplicateChunks: true,
         concatenateModules: true,
         splitChunks: {
-            chunks: 'all',
-            minSize: 20000,
-            maxSize: 0,
-            minChunks: 1,
-            maxAsyncRequests: 5,
-            maxInitialRequests: 3,
-            automaticNameDelimiter: '~',
-            name: true,
             cacheGroups: {
                 vendors: {
-                    name: 'vender-bundle',
-                    test: /[\\/]node_modules[\\/]/,
+                    name: 'chunk-vendors',
+                    test: /[\\\/]node_modules[\\\/]/,
                     priority: -10,
-                    //reuseExistingChunk: true
+                    chunks: 'initial'
                 },
-                default: {
-                    name: 'common-bundle',
-                    test:'/src/',
+                common: {
+                    name: 'chunk-common',
+                    minChunks: 2,
                     priority: -20,
-                    //reuseExistingChunk: true
+                    chunks: 'initial',
+                    reuseExistingChunk: true
                 }
             }
         }
@@ -54,7 +57,7 @@ module.exports = merge(common, {
                     loader: "file-loader",
                     options: {
                         useRelativePath: true,
-                        name: 'components/[name].html'
+                        name: 'components/[name].[hash:8].html'
                     }
                 }, {
                     loader: "extract-loader",
@@ -73,7 +76,7 @@ module.exports = merge(common, {
     },
     plugins: [
         new ExtractTextPlugin({
-            filename: 'css/[name].css',
+            filename: 'css/[name].[hash:8].css',
             allChunks: true
         }),
         new webpack.AutomaticPrefetchPlugin(),
