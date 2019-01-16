@@ -6,7 +6,7 @@ import '@/assets/css/ss1.scss';
 import {cube} from '@/model/match.js';
 import imgsrc1 from '@/assets/img/60535674_p0.jpg';
 import imgsrc2 from '@/assets/img/60535674_p2.jpg';
-import html1 from '@/components/data.html';
+import html1 from 'cp/data.html';
 
 function component(){
 	let element = document.createElement('p');

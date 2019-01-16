@@ -7,7 +7,8 @@ module.exports = {
     resolve: {
         alias: {
             // 解析模块请求的选项（不适用于对 loader 解析）
-            "@": path.resolve(__dirname, "src")
+            "@": path.resolve(__dirname, "src"),
+            "cp":path.resolve(__dirname, "src","components")
         },
         extensions: [".js", ".json", ".jsx", ".css", "scss", "sass", "html"] // 使用的扩展名
     },
@@ -38,7 +39,7 @@ module.exports = {
                             fallback: {
                                 loader: 'file-loader',
                                 options: {
-                                    name: 'img/[name].[hash:8].[ext]'
+                                    name: '/img/[name].[hash:8].[ext]' //相对根目录下的img目录
                                 }
                             }
                         }
@@ -61,7 +62,7 @@ module.exports = {
                 test: /\.xml(\?.*)?$/,
                 use: ['xml-loader']
             }
-            /*,{
+            ,/*{
                             test: /\.html(\?.*)?$/,
                             loader:'html-loader'
                         }*/
